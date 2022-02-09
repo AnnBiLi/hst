@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hs.hst.mapper.UserMapper">
+
+
+    <delete id="delUser">
+        delete from user where id = #{id}
+    </delete>
+
+
+    <select id="getNameByID" resultType="java.lang.String">
+        select name from user where id = #{id}
+    </select>
+
+    <select id="acquireAllUser" resultType="com.hs.hst.model.User">
+        select * from user
+    </select>
+
+    <insert id="insertUser">
+        insert into user(id,name,pwd,email)
+        values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="getUserByName" resultType="com.hs.hst.model.User">
+        select * from user where name = #{name}
+    </select>
+
+    <select id="getIDByName" resultType="java.lang.Integer">
+        select id from user where name = #{name};
+    </select>
+
+    <select id="getUserByID" resultType="com.hs.hst.model.User">
+        select * from user where id = #{id};
+    </select>
+
+
+    <update id="updatePwd">
+        update user set pwd = #{pwd} where id = #{id}
+    </update>
+    <update id="updatePwdByName">
+        update user set pwd = #{pwd} where name = #{name}
+    </update>
+
+</mapper>

@@ -1,0 +1,18 @@
+#开发环境
+server:
+  port: 8880
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://47.108.69.12:5432/hts
+    username: postgres
+    password: 123456
+    driverClassName: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.hs.hst.model
+
+#showSql
+#
